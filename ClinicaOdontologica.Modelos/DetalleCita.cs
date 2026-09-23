@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ClinicaOdontologica.Modelos
+{
+    [Table("detallesCitas")]
+    public class DetalleCita
+    {
+        [Key]
+        [Column("id_detalle", TypeName = "serial")]
+        public int IdDetalle { get; set; }
+        //llave cita
+        [ForeignKey("Cita")]
+        [Column("id_cita")]
+        public int idCita { get; set; }
+        public Cita? Cita { get; set; }
+        //llave tratamiento
+        [ForeignKey("Tratamiento")]
+        [Column("id_tratamiento")]
+        public int idTratamiento { get; set; }
+        public Tratamiento? Tratamiento { get; set; }
+
+        [Required]
+        [Column("costo_aplicado",TypeName ="numeric(10,2)")]
+        public decimal costoAplicado { get; set; }
+
+        public string observaciones { get; set; }
+
+    }
+}
