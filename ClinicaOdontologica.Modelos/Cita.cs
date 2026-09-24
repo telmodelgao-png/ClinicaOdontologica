@@ -16,7 +16,7 @@ namespace ClinicaOdontologica.Modelos
         [Column("id_cita")]
         public int IdCita { get; set; }
         [Required]
-        [Column("fecha_cita")]
+        [Column("fecha_cita" ,TypeName ="timestamp")]
         public DateTime fechaCita { get; set; }
         [Required]
         [MaxLength(100)]
@@ -27,17 +27,21 @@ namespace ClinicaOdontologica.Modelos
         //llave de paciente
         [ForeignKey("Paciente")]
         [Column("id_paciemte")]
-        public int Idpaciente {  get; set; }
-        public Paciente? Paciente{  get; set; }
+        public int Idpaciente { get; set; }
         //llave odontologo
         [ForeignKey("Odontologo")]
         [Column("id_odontologo")]
         public int IdOdontologo { get; set; }
-        public Odontologo? Odontologo { get; set; }
         //llave consultorio
         [ForeignKey("Consultorio")]
         [Column("id_consultorio")]
         public int IdConsultorio { get; set; }
+        //objetos de navegacio
         public Consultorio? Consultorio { get; set; }
+        public Odontologo? Odontologo { get; set; }
+        public Paciente? Paciente { get; set; }
+
+
+
     }
 }

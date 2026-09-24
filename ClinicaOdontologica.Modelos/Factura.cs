@@ -15,7 +15,7 @@ namespace ClinicaOdontologica.Modelos
         [Column("id_factura", TypeName = "serial")]
         public string IdFactura { get; set; }
         [Required]
-        [Column("fecha_emision")]
+        [Column("fecha_emision",TypeName = "timestamp")]
         public DateTime fechaEmision { get; set; }
 
         [Required]
@@ -33,9 +33,11 @@ namespace ClinicaOdontologica.Modelos
         [Column("estado_pago")]
         public string estadoPago { get; set; }
 
+        //lave citas
         [ForeignKey("Cita")]
         [Column("id_cita")]
         public int idCita { get; set; }
+        //objeto de navegacion
         public Cita? Cita { get; set; }
     }
 }

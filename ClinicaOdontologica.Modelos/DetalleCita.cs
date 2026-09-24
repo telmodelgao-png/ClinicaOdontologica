@@ -15,22 +15,25 @@ namespace ClinicaOdontologica.Modelos
         [Key]
         [Column("id_detalle", TypeName = "serial")]
         public int IdDetalle { get; set; }
-        //llave cita
-        [ForeignKey("Cita")]
-        [Column("id_cita")]
-        public int idCita { get; set; }
-        public Cita? Cita { get; set; }
-        //llave tratamiento
-        [ForeignKey("Tratamiento")]
-        [Column("id_tratamiento")]
-        public int idTratamiento { get; set; }
-        public Tratamiento? Tratamiento { get; set; }
+
 
         [Required]
         [Column("costo_aplicado",TypeName ="numeric(10,2)")]
         public decimal costoAplicado { get; set; }
 
         public string observaciones { get; set; }
+        //llave cita
+        [ForeignKey("Cita")]
+        [Column("id_cita")]
+        public int idCita { get; set; }
+        //llave tratamiento
+        [ForeignKey("Tratamiento")]
+        [Column("id_tratamiento")]
+        public int idTratamiento { get; set; }
+        //objetos de navegacion
+        public Tratamiento? Tratamiento { get; set; }
+
+        public Cita? Cita { get; set; }
 
     }
 }

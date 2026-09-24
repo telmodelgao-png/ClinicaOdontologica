@@ -30,6 +30,7 @@ namespace ClinicaOdontologica.Modelos
         [ForeignKey("Especialidad")]
         [Column("id_especialidad")]
         public int IdEspecialidad { get; set; }
+        //objetos de navegacion
         public Especialidad? Especialidad { get; set; }
     }
 }
