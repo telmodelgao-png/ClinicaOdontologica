@@ -18,8 +18,10 @@ namespace ClinicaOdontologica.Modelos
 
 
         [Column("costo_aplicado",TypeName ="numeric(10,2)")]
-        public decimal costoAplicado { get; set; }
+        [Required]
 
+        public decimal costoAplicado { get; set; }
+        [Required]
         public string observaciones { get; set; }
         //llave cita
         [ForeignKey("Cita")]

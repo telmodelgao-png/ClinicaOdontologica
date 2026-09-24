@@ -21,9 +21,10 @@ namespace ClinicaOdontologica.Modelos
         public string numeroSala { get; set; }
         [Required]
         public int piso { get; set; }
-        [Required]
+
         [MaxLength(100)]
-        [Column("equipamiento_principal"    )]
+        [Required]
+        [Column("equipamiento_principal")]
         public string EquipamientoPrincipal { get; set; }
         //relaciones
         List<Cita> Citas { get; set; }=new List<Cita>();

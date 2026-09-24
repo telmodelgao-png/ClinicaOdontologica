@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ClinicaOdontologica.Modelos
 {
     [Table("Facturas")]
-    internal class Factura
+    public class Factura
     {
         [Key]
         [Column("id_factura", TypeName = "serial")]
