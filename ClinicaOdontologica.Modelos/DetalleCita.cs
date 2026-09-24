@@ -17,7 +17,6 @@ namespace ClinicaOdontologica.Modelos
         public int IdDetalle { get; set; }
 
 
-        [Required]
         [Column("costo_aplicado",TypeName ="numeric(10,2)")]
         public decimal costoAplicado { get; set; }
 
