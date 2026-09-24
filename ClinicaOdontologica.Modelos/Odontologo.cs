@@ -32,5 +32,7 @@ namespace ClinicaOdontologica.Modelos
         public int IdEspecialidad { get; set; }
         //objetos de navegacion
         public Especialidad? Especialidad { get; set; }
+
+        List<Cita>Citas { get; set; }=new List<Cita>();
     }
 }
