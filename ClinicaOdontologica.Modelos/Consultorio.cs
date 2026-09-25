@@ -13,7 +13,7 @@ namespace ClinicaOdontologica.Modelos
     public class Consultorio
     {
         [Key]
-        [Column("id_consultorio",TypeName ="serial")]
+        [Column("id_consultorio")]
         public int idConsultorio { get; set; }
         [MaxLength(10)]
         [Column("numero_sala")]

@@ -13,7 +13,7 @@ namespace ClinicaOdontologica.Modelos
     public class DetalleCita
     {
         [Key]
-        [Column("id_detalle", TypeName = "serial")]
+        [Column("id_detalle")]
         public int IdDetalle { get; set; }
 
 

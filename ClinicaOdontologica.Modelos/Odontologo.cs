@@ -13,7 +13,7 @@ namespace ClinicaOdontologica.Modelos
     public class Odontologo
     {
         [Key]
-        [Column(TypeName = "serial")]
+        [Column("Id_odontologo")]
         public int IdOdontologo { get; set; }
         [Required]
         [MaxLength(50)]
