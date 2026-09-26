@@ -59,7 +59,6 @@ namespace ClinicaOdontologica.Consumer
                 {
                     throw new Exception($"Error: {response.StatusCode} ");
                 }
-
             }
         }
         public static bool Update(int id, T item)
