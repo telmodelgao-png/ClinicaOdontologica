@@ -14,9 +14,9 @@ public class OdontologoesController : Controller
     }
 
     // GET: CITAS/Details/5
-    public ActionResult Details(int idodontologo)
+    public ActionResult Details(int id)
     {
-        var odontologo = CRUD<Odontologo>.GetById(idodontologo);
+        var odontologo = CRUD<Odontologo>.GetById(id);
         if (odontologo == null)
         {
             return NotFound();
@@ -53,9 +53,9 @@ public class OdontologoesController : Controller
     }
 
     // GET: CITAS/Edit/5
-    public ActionResult Edit(int idodontologo)
+    public ActionResult Edit(int id)
     {
-        var odontologo = CRUD<Odontologo>.GetById(idodontologo);
+        var odontologo = CRUD<Odontologo>.GetById(id);
         if (odontologo == null)
         {
             return NotFound();
@@ -68,11 +68,11 @@ public class OdontologoesController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Edit(int idodontologo, Odontologo odontologo)
+    public ActionResult Edit(int id, Odontologo odontologo)
     {
         try
         {
-            CRUD<Odontologo>.Update(idodontologo, odontologo);
+            CRUD<Odontologo>.Update(id, odontologo);
             return RedirectToAction(nameof(Index));
         }
         catch (Exception ex)
@@ -83,9 +83,9 @@ public class OdontologoesController : Controller
     }
 
     // GET: CITAS/Delete/5
-    public ActionResult Delete(int idontologo)
+    public ActionResult Delete(int id)
     {
-        var odontologo = CRUD<Odontologo>.GetById(idontologo);
+        var odontologo = CRUD<Odontologo>.GetById(id);
         if (odontologo == null)
         {
             return NotFound();
@@ -96,11 +96,11 @@ public class OdontologoesController : Controller
     // POST: CITAS/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
-    public ActionResult DeleteConfirmed(int idodontologo, Odontologo odontologo)
+    public ActionResult DeleteConfirmed(int id, Odontologo odontologo)
     {
         try
         {
-            CRUD<Odontologo>.Delete(idodontologo);
+            CRUD<Odontologo>.Delete(id);
             return RedirectToAction(nameof(Index));
         }
         catch (Exception ex)

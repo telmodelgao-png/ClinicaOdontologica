@@ -14,9 +14,9 @@ public class TratamientoesController : Controller
     }
 
     // GET: CITAS/Details/5
-    public ActionResult Details(int idtratamiento)
+    public ActionResult Details(int id)
     {
-        var tratamiento = CRUD<Tratamiento>.GetById(idtratamiento);
+        var tratamiento = CRUD<Tratamiento>.GetById(id);
         if (tratamiento == null)
         {
             return NotFound();
@@ -53,9 +53,9 @@ public class TratamientoesController : Controller
     }
 
     // GET: CITAS/Edit/5
-    public ActionResult Edit(int idtratamiento)
+    public ActionResult Edit(int id)
     {
-        var tratamiento = CRUD<Tratamiento>.GetById(idtratamiento);
+        var tratamiento = CRUD<Tratamiento>.GetById(id);
         if (tratamiento == null)
         {
             return NotFound();
@@ -68,11 +68,11 @@ public class TratamientoesController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Edit(int idtratamiento, Tratamiento tratamiento)
+    public ActionResult Edit(int id, Tratamiento tratamiento)
     {
         try
         {
-            CRUD<Tratamiento>.Update(idtratamiento, tratamiento);
+            CRUD<Tratamiento>.Update(id, tratamiento);
             return RedirectToAction(nameof(Index));
         }
         catch (Exception ex)
@@ -83,9 +83,9 @@ public class TratamientoesController : Controller
     }
 
     // GET: CITAS/Delete/5
-    public ActionResult Delete(int idtratamiento)
+    public ActionResult Delete(int id)
     {
-        var tratamiento = CRUD<Tratamiento>.GetById(idtratamiento);
+        var tratamiento = CRUD<Tratamiento>.GetById(id);
         if (tratamiento == null)
         {
             return NotFound();
@@ -96,11 +96,11 @@ public class TratamientoesController : Controller
     // POST: CITAS/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
-    public ActionResult DeleteConfirmed(int idtratamiento, Tratamiento tratamiento)
+    public ActionResult DeleteConfirmed(int id, Tratamiento tratamiento)
     {
         try
         {
-            CRUD<Tratamiento>.Delete(idtratamiento);
+            CRUD<Tratamiento>.Delete(id);
             return RedirectToAction(nameof(Index));
         }
         catch (Exception ex)

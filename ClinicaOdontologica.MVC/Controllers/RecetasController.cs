@@ -14,9 +14,9 @@ public class RecetasController : Controller
     }
 
     // GET: CITAS/Details/5
-    public ActionResult Details(int idreceta)
+    public ActionResult Details(int id)
     {
-        var receta = CRUD<Receta>.GetById(idreceta);
+        var receta = CRUD<Receta>.GetById(id);
         if (receta == null)
         {
             return NotFound();
@@ -53,9 +53,9 @@ public class RecetasController : Controller
     }
 
     // GET: CITAS/Edit/5
-    public ActionResult Edit(int idreceta)
+    public ActionResult Edit(int id)
     {
-        var receta = CRUD<Receta>.GetById(idreceta);
+        var receta = CRUD<Receta>.GetById(id);
         if (receta == null)
         {
             return NotFound();
@@ -68,11 +68,11 @@ public class RecetasController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public ActionResult Edit(int idreceta, Receta receta)
+    public ActionResult Edit(int id, Receta receta)
     {
         try
         {
-            CRUD<Receta>.Update(idreceta, receta);
+            CRUD<Receta>.Update(id, receta);
             return RedirectToAction(nameof(Index));
         }
         catch (Exception ex)
@@ -83,9 +83,9 @@ public class RecetasController : Controller
     }
 
     // GET: CITAS/Delete/5
-    public ActionResult Delete(int idreceta)
+    public ActionResult Delete(int id)
     {
-        var receta = CRUD<Receta>.GetById(idreceta);
+        var receta = CRUD<Receta>.GetById(id);
         if (receta == null)
         {
             return NotFound();
@@ -96,11 +96,11 @@ public class RecetasController : Controller
     // POST: CITAS/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
-    public ActionResult DeleteConfirmed(int idreceta, Receta receta)
+    public ActionResult DeleteConfirmed(int id, Receta receta)
     {
         try
         {
-            CRUD<Receta>.Delete(idreceta);
+            CRUD<Receta>.Delete(id);
             return RedirectToAction(nameof(Index));
         }
         catch (Exception ex)
