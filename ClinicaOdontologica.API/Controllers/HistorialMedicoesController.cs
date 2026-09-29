@@ -16,7 +16,9 @@ public class HistorialMedicoesController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<HistorialMedico>>> GetHistorialMedico()
     {
-        return await _context.HistorialMedico.ToListAsync();
+        return await _context.HistorialMedico.
+            Include(p=>p.paciente)
+            .ToListAsync();
     }
 
     // GET: api/HistorialMedico/5

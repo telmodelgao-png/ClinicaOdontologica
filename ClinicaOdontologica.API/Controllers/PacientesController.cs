@@ -16,7 +16,9 @@ public class PacientesController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Paciente>>> GetPaciente()
     {
-        return await _context.Paciente.ToListAsync();
+        return await _context.Paciente.
+            Include(c=>c.Citas)
+            .ToListAsync();
     }
 
     // GET: api/Paciente/5

@@ -19,7 +19,9 @@ namespace ClinicaOdontologica.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Consultorio>>> GetConsultorios()
         {
-            return await _context.Consultorio.ToListAsync();
+            return await _context.Consultorio.
+                Include(c=>c.Citas)
+                .ToListAsync();
         }
 
         // GET: api/Consultorios/5

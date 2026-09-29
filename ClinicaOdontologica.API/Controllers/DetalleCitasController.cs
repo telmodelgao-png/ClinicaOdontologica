@@ -16,7 +16,10 @@ public class DetalleCitasController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<DetalleCita>>> GetDetalleCita()
     {
-        return await _context.DetalleCita.ToListAsync();
+        return await _context.DetalleCita.
+            Include(t=>t.Tratamiento).
+            Include(c=>c.Cita)
+            .ToListAsync();
     }
 
     // GET: api/DetalleCita/5

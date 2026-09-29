@@ -19,12 +19,6 @@
                 @Html.DisplayNameFor(model => model.observaciones)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.idCita)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.idTratamiento)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Tratamiento)
             </th>
             <th>
@@ -43,16 +37,10 @@
                 @Html.DisplayFor(model => item.observaciones)
             </td>
             <td>
-                @Html.DisplayFor(model => item.idCita)
+                @Html.DisplayFor(model => item.Tratamiento.nombreTratamiento)
             </td>
             <td>
-                @Html.DisplayFor(model => item.idTratamiento)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Tratamiento)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Cita)
+                @Html.DisplayFor(model => item.Cita.motivo)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.IdDetalle">Edit</a> |

@@ -16,7 +16,10 @@ public class OdontologoesController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Odontologo>>> GetOdontologo()
     {
-        return await _context.Odontologo.ToListAsync();
+        return await _context.Odontologo.
+            Include(e=>e.Especialidad).
+            Include(c=>c.Citas)
+            .ToListAsync();
     }
 
     // GET: api/Odontologo/5

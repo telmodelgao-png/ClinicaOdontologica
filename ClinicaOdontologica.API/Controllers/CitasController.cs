@@ -16,9 +16,15 @@ public class CitasController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Cita>>> GetCita()
     {
-        return await _context.Cita.ToListAsync();
+        return await _context.Cita.
+            Include(c=>c.Recetas).
+            Include(p => p.Paciente).
+            Include(o=>o.Odontologo).
+            Include(co=>co.Consultorio).
+            Include(d => d.DetallesCita).
+            ToListAsync();
     }
-
+    
     // GET: api/Cita/5
     [HttpGet("{idcita}")]
     public async Task<ActionResult<Cita>> GetCita(int idcita)

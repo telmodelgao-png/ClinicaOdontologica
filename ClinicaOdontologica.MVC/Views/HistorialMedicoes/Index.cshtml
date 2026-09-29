@@ -22,9 +22,6 @@
                 @Html.DisplayNameFor(model => model.tipoSangre)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.IdPaciente)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.paciente)
             </th>
             <th></th>
@@ -43,10 +40,7 @@
                 @Html.DisplayFor(model => item.tipoSangre)
             </td>
             <td>
-                @Html.DisplayFor(model => item.IdPaciente)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.paciente)
+                    @Html.DisplayFor(model => item.paciente.nombres)@Html.DisplayFor(model => item.paciente.apellidos)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.IdHistorialMedico">Edit</a> |

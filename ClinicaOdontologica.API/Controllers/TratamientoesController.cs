@@ -16,7 +16,8 @@ public class TratamientoesController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Tratamiento>>> GetTratamiento()
     {
-        return await _context.Tratamiento.ToListAsync();
+        return await _context.Tratamiento.
+            Include(d=>d.DetallesCita).ToListAsync();
     }
 
     // GET: api/Tratamiento/5

@@ -24,7 +24,7 @@ namespace ClinicaOdontologica.Consumer
                 else
                 {
                     throw new Exception($"Error: {response.StatusCode} ");
-                }
+                }   
             }
         }
         public static T GetById(int id)

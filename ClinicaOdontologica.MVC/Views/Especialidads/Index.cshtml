@@ -18,9 +18,6 @@
             <th>
                 @Html.DisplayNameFor(model => model.descripcion)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Odontologos)
-            </th>
             <th></th>
         </tr>
     </thead>
@@ -32,9 +29,6 @@
             </td>
             <td>
                 @Html.DisplayFor(model => item.descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(model => item.Odontologos)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.idEspeciliadad">Edit</a> |

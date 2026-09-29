@@ -16,7 +16,9 @@ public class RecetasController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Receta>>> GetReceta()
     {
-        return await _context.Receta.ToListAsync();
+        return await _context.Receta.
+            Include(c => c.Cita.Paciente)
+            .ToListAsync();
     }
 
     // GET: api/Receta/5
