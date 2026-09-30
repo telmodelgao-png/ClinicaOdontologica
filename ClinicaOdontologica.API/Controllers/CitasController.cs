@@ -20,8 +20,10 @@ public class CitasController : ControllerBase
             Include(c=>c.Recetas).
             Include(p => p.Paciente).
             Include(o=>o.Odontologo).
+            ThenInclude(oo=>oo.Especialidad).
             Include(co=>co.Consultorio).
             Include(d => d.DetallesCita).
+            ThenInclude(dd=> dd.Tratamiento).
             ToListAsync();
     }
     

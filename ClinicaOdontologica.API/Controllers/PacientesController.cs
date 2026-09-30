@@ -17,7 +17,11 @@ public class PacientesController : ControllerBase
     public async Task<ActionResult<IEnumerable<Paciente>>> GetPaciente()
     {
         return await _context.Paciente.
-            Include(c=>c.Citas)
+            Include(c=>c.Citas).
+            ThenInclude(co=>co.Consultorio)
+            .Include(c=>c.Citas).
+            ThenInclude(o=>o.Odontologo)
+            .ThenInclude(e=>e.Especialidad)
             .ToListAsync();
     }
 

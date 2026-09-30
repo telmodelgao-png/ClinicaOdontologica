@@ -16,7 +16,15 @@ public class FacturasController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<Factura>>> GetFactura()
     {
-        return await _context.Factura.Include(c=>c.Cita.Paciente).ToListAsync();
+        return await _context.Factura
+            .Include(c=>c.Cita).
+            ThenInclude(p=>p.Paciente)
+            .Include(c=>c.Cita).
+            ThenInclude(o=>o.Odontologo).
+            ThenInclude(e=>e.Especialidad).
+            Include(c=>c.Cita)
+            .ThenInclude(co=>co.Consultorio)
+            .ToListAsync();
     }
 
     // GET: api/Factura/5

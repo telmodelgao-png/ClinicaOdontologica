@@ -18,7 +18,13 @@ public class DetalleCitasController : ControllerBase
     {
         return await _context.DetalleCita.
             Include(t=>t.Tratamiento).
-            Include(c=>c.Cita)
+            Include(c=>c.Cita).
+            ThenInclude(cc=>cc.Consultorio).
+            Include(c => c.Cita).
+            ThenInclude(o=>o.Odontologo).
+            ThenInclude(e=>e.Especialidad).
+            Include(c => c.Cita).
+            ThenInclude(p=>p.Paciente)
             .ToListAsync();
     }
 

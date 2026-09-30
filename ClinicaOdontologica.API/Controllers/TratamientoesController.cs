@@ -17,7 +17,17 @@ public class TratamientoesController : ControllerBase
     public async Task<ActionResult<IEnumerable<Tratamiento>>> GetTratamiento()
     {
         return await _context.Tratamiento.
-            Include(d=>d.DetallesCita).ToListAsync();
+            Include(d=>d.DetallesCita).
+            ThenInclude(c=>c.Cita).
+            ThenInclude(co=>co.Consultorio).
+            Include(d => d.DetallesCita).
+            ThenInclude(c => c.Cita).
+            ThenInclude(o=>o.Odontologo).
+            ThenInclude(e=>e.Especialidad).
+            Include(d => d.DetallesCita).
+            ThenInclude(c => c.Cita).
+            ThenInclude(p=>p.Paciente).
+            ToListAsync();
     }
 
     // GET: api/Tratamiento/5

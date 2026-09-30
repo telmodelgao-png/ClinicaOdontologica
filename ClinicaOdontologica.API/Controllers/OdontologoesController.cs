@@ -17,8 +17,11 @@ public class OdontologoesController : ControllerBase
     public async Task<ActionResult<IEnumerable<Odontologo>>> GetOdontologo()
     {
         return await _context.Odontologo.
-            Include(e=>e.Especialidad).
-            Include(c=>c.Citas)
+            Include(e => e.Especialidad).
+            Include(c => c.Citas).
+            ThenInclude(co => co.Consultorio).
+            Include(c => c.Citas).
+            ThenInclude(p =>p.Paciente)
             .ToListAsync();
     }
 

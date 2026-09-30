@@ -20,7 +20,11 @@ namespace ClinicaOdontologica.Controllers
         public async Task<ActionResult<IEnumerable<Consultorio>>> GetConsultorios()
         {
             return await _context.Consultorio.
-                Include(c=>c.Citas)
+                Include(c=>c.Citas).
+                ThenInclude(d=>d.Odontologo).
+                ThenInclude(e=>e.Especialidad).
+                Include(c=>c.Citas).
+                ThenInclude(p => p.Paciente)
                 .ToListAsync();
         }
 

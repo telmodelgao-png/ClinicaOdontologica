@@ -17,7 +17,13 @@ public class RecetasController : ControllerBase
     public async Task<ActionResult<IEnumerable<Receta>>> GetReceta()
     {
         return await _context.Receta.
-            Include(c => c.Cita.Paciente)
+            Include(c => c.Cita)
+            .ThenInclude(p => p.Paciente).
+            Include(c=>c.Cita).
+            ThenInclude(co=>co.Consultorio).
+            Include(c=>c.Cita).
+            ThenInclude(o=>o.Odontologo)
+            .ThenInclude(e=>e.Especialidad)
             .ToListAsync();
     }
 
