@@ -12,5 +12,7 @@ public class ClinicaOdontologicaAPIContext(DbContextOptions<ClinicaOdontologicaA
     public DbSet<ClinicaOdontologica.Modelos.Paciente> Paciente { get; set; } = default!;
     public DbSet<ClinicaOdontologica.Modelos.Receta> Receta { get; set; } = default!;
     public DbSet<ClinicaOdontologica.Modelos.Tratamiento> Tratamiento { get; set; } = default!;
+    public DbSet<ClinicaOdontologica.Modelos.Usuario> Usuario { get; set; } = default!;
+
 
 }

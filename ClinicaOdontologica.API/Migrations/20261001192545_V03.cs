@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace ClinicaOdontologica.API.Migrations
 {
     /// <inheritdoc />
-    public partial class V01 : Migration
+    public partial class V03 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -72,6 +72,23 @@ namespace ClinicaOdontologica.API.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Tratamientos", x => x.id_tratamiento);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Usuario",
+                columns: table => new
+                {
+                    id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    nombre = table.Column<string>(type: "text", nullable: false),
+                    apellido = table.Column<string>(type: "text", nullable: false),
+                    correo = table.Column<string>(type: "text", nullable: false),
+                    nombreUsuario = table.Column<string>(type: "text", nullable: false),
+                    password = table.Column<string>(type: "text", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Usuario", x => x.id);
                 });
 
             migrationBuilder.CreateTable(
@@ -286,6 +303,9 @@ namespace ClinicaOdontologica.API.Migrations
 
             migrationBuilder.DropTable(
                 name: "recetas");
+
+            migrationBuilder.DropTable(
+                name: "Usuario");
 
             migrationBuilder.DropTable(
                 name: "Tratamientos");

@@ -1,6 +1,7 @@
 using ClinicaOdontologica.Consumer;
 using ClinicaOdontologica.Modelos;
-using Microsoft.EntityFrameworkCore;
+using ClinicaOdontologica.Services.Interfaces;
+using ClinicaOdontologica.Servicios;
 
 CRUD<Cita>.Endpoint = "https://localhost:7142/api/Citas";
 CRUD<Consultorio>.Endpoint = "https://localhost:7142/api/Consultorios";
@@ -12,17 +13,20 @@ CRUD<Odontologo>.Endpoint = "https://localhost:7142/api/Odontologoes";
 CRUD<Paciente>.Endpoint = "https://localhost:7142/api/Pacientes";
 CRUD<Receta>.Endpoint = "https://localhost:7142/api/Recetas";
 CRUD<Tratamiento>.Endpoint = "https://localhost:7142/api/Tratamientoes";
-
+CRUD<Usuario>.Endpoint = "https://localhost:7142/api/Usuarios";
 
 var builder = WebApplication.CreateBuilder(args);
-var connectionString = builder.Configuration.GetConnectionString("ClinicaOdontologicaAPIContext") ?? throw new InvalidOperationException("Connection string 'ClinicaOdontologicaAPIContext' not found.");
-
-builder.Services.AddDbContext<ClinicaOdontologicaAPIContext>(options => options.UseNpgsql(connectionString));
-
-
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IAuthServices, AuthService>();
+builder.Services.AddHttpContextAccessor();
+
+
+builder.Services.AddAuthentication("Cookies").AddCookie("Cookies", options =>
+{
+    options.LoginPath = "/Account/Index";
+});
 
 var app = builder.Build();
 
@@ -38,11 +42,11 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Account}/{action=Index}/{id?}");
 
 app.Run();

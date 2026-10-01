@@ -2,6 +2,9 @@
 using Microsoft.AspNetCore.Mvc;
 using ClinicaOdontologica.Modelos;
 using ClinicaOdontologica.Consumer;
+using Microsoft.AspNetCore.Authorization;
+
+[Authorize]
 public class HistorialMedicoesController : Controller
 {
 

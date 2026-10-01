@@ -3,4 +3,5 @@
   <Project Path="ClinicaOdontologica.Consumer/ClinicaOdontologica.Consumer.csproj" Id="b1018fab-4dce-4546-8a74-3effe59e2f0a" />
   <Project Path="ClinicaOdontologica.Modelos/ClinicaOdontologica.Modelos.csproj" />
   <Project Path="ClinicaOdontologica.MVC/ClinicaOdontologica.MVC.csproj" Id="b3a9f226-513b-4526-9818-d4cf05f4848d" />
+  <Project Path="ClinicaOdontologica.Services/ClinicaOdontologica.Services.csproj" Id="3d00a04c-74df-4819-b735-070d11c7b8a4" />
 </Solution>
